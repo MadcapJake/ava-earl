@@ -14,7 +14,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "files": [
-    "index.js"
+    "cli.js"
   ],
   "keywords": [
     "earl-grey",
@@ -25,6 +25,7 @@
   "dependencies": {
     "globby": "^2.1.0",
     "meow": "^3.3.0",
+    "source-map-support": "^0.3.2",
     "update-notifier": "^0.5.0"
   }
 }

@@ -1,29 +1,34 @@
 require: fs -> stat, path -> {join, resolve}, globby, meow, update-notifier
 
-cli = meow with
-   { help = """
-         Usage
-           agave <file|folder|glob> [...]
+module.exports = argv ->
+   cli = meow with
+      {
+         help = {
+            """Usage
+      		      ava <file|folder|glob> [...]"
 
-         Examples
-           agave
-           agave test.eg test2.eg
-           agave test-*.eg
+      	      Examples
+      		      ava
+      		      ava test.js test2.js"
+      		      ava test-*.js"
 
-         Default patterns when no arguments:
-         test.eg test-*.eg test/**""".split("\n").splice(1) each s -> s.trim() }
-   { string = { "_" } }
+      		   Default patterns when no arguments:"
+      		   test.js test-*.js test/**"""
+         }
+         argv = argv
+      }
+      { string = { "_" } }
 
-error = err -> if err: [ console.error with err.message; process.exit(1) ]
+   error = err -> if err: [ console.error with err.message; process.exit(1) ]
 
-run = file ->
-   stat file: (error! err, stats) ->
-      if stats.is-directory(): [ init: join(file, "*.eg"); return ]
-      require: ^file
+   run = file ->
+      stat file: (error! err, stats) ->
+         if stats.is-directory(): [ init: join(file, "*.eg"); return ]
+         require: ^file
 
-init = (files = { "test.eg", "test-*.eg", "test/**" }) ->
-   globby files: (error! err, files) ->
-      files each file -> run: resolve(process.cwd(), file)
+   init = (files = { "test.eg", "test-*.eg", "test/**" }) ->
+      globby files: (error! err, files) ->
+         files each file -> run: resolve(process.cwd(), file)
 
-update-notifier({ pkg = cli.pkg }).notify()
-init: cli.input
+   update-notifier({ pkg = cli.pkg }).notify()
+   init: cli.input

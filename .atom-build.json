@@ -1,0 +1,7 @@
+{
+  "cmd": "earl",
+  "name": "compile agave",
+  "args": ["compile", "-5rsvo", "_cli.js", "_cli.eg"],
+  "errorMatch": "(?<file>.+\\.eg) (?<line>\\d+):(?<col>\\d+)(?:\\-\\d+)?",
+  "cwd": "{PROJECT_PATH}"
+}

@@ -19,7 +19,8 @@
   "keywords": [
     "earl-grey",
     "cli",
-    "ava"
+    "ava",
+    "test"
   ],
   "dependencies": {
     "globby": "^2.1.0",

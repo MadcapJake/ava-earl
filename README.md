@@ -68,7 +68,7 @@ To learn more about `ava` check out their [documentation](https://github.com/sin
 
 ## License
 
-MIT © Jacob Russo
+[MIT][mit] © [Jake Russo][author] et [al][contributors]
 
 [mit]:          http://opensource.org/licenses/MIT
 [author]:       http://github.com/MadcapJake

@@ -20,6 +20,7 @@ require-macros: ava-earl -> {test, serial-test}
 serial-test .baz:
    @false(1 == 2)
    @not("hello", "world")
+   @end()
 
 test .foo:
    @pass()

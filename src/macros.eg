@@ -1,0 +1,12 @@
+require: ava
+provide: test
+
+macro{ava} test(`{^name, ^body}`) =
+   let ava-sym = @deps.ava
+   let it = @env.mark(`@`)
+   ```
+   [^ava-sym](^name) with t ->
+      t.equals = t"is"
+      let ^it = t
+      ^body
+   ```

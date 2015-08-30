@@ -15,20 +15,23 @@ module.exports = argv ->
       		   Default patterns when no arguments:"
       		   test.js test-*.js test/**"""
          }
+         pkg = "../package.json"
          argv = argv
       }
       { string = { "_" } }
 
-   error = err -> if err: [ console.error with err.message; process.exit(1) ]
-
    run = file ->
-      stat file: (error! err, stats) ->
+      stat file: (err, stats) ->
+         if err: [ console.error with err.message; process.exit(1) ]
          if stats.is-directory(): [ init: join(file, "*.eg"); return ]
          require: ^file
 
-   init = (files = { "test.eg", "test-*.eg", "test/**" }) ->
-      globby files: (error! err, files) ->
+   init = (var files) ->
+      if files.length == 0: files = { "test.eg", "test-*.eg", "test/**" }
+      globby files: (err, files) ->
+         if err: [ console.error with err.message; process.exit(1) ]
          files each file -> run: resolve(process.cwd(), file)
 
    update-notifier({ pkg = cli.pkg }).notify()
+
    init: cli.input

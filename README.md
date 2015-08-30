@@ -61,8 +61,6 @@ in `ava`  | in `ava-earl`
 
 Currently it only supports named tests and the minimal amount of boilerplate already here makes me feel that it's really unnecessary to go any further.  Not to mention, there might be some added complexity with supporting the named function format.
 
-Also, the `serial-test` macro is currently non-working.  In the process of debugging that right now.
-
 ## Documentation
 To learn more about `ava` check out their [documentation](https://github.com/sindresorhus/ava#documentation).
 

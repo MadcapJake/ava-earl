@@ -1,6 +1,11 @@
 # ava-earl
 
-A CLI replacement for [AVA](https://github.com/sindresorhus/ava) that works for AVA tests written in [Earl Grey](https://breuleux.github.io/earl-grey)
+[![Earl Grey][earl-grey-badge]][earl-grey-link]
+[![npm package][npm-ver-link]][releases]
+[![][dl-badge]][npm-pkg-link]
+[![][mit-badge]][mit]
+
+A CLI replacement for [AVA](https://github.com/sindresorhus/ava) that works for AVA tests written in [Earl Grey](earl-grey-link)
 
 ## Install
 ```
@@ -64,3 +69,14 @@ To learn more about `ava` check out their [documentation](https://github.com/sin
 ## License
 
 MIT © Jacob Russo
+
+[mit]:          http://opensource.org/licenses/MIT
+[author]:       http://github.com/MadcapJake
+[contributors]: https://github.com/MadcapJake/ava-earl/graphs/contributors
+[releases]:     https://github.com/MadcapJake/ava-earl/releases
+[earl-grey-badge]: https://img.shields.io/badge/Earl-Grey-lightgrey.svg?style=flat-square
+[earl-grey-link]:  https://breuleux.github.io/earl-grey/
+[mit-badge]: https://img.shields.io/badge/license-MIT-444444.svg?style=flat-square
+[npm-pkg-link]: https://www.npmjs.org/package/ava-earl
+[npm-ver-link]: https://img.shields.io/npm/v/ava-earl.svg?style=flat-square
+[dl-badge]: http://img.shields.io/npm/dm/ava-earl.svg?style=flat-square

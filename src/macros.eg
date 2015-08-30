@@ -6,10 +6,11 @@ macro{ava} test(`{^name, ^body}`) =
    let it = @env.mark(`@`)
    ```
    [^ava-sym](^name) with t ->
-      t.equals = t"is"
+      t.equals   = t"is"
       t.nequals  = t"not"
-      t.is-false = t"false"
-      t.is-true  = t"true"
+      t.isFalse  = t"false"
+      t.isTrue   = t"true"
+      t.passes   = t"pass"
       let ^it = t
       ^body
    ```
@@ -21,8 +22,9 @@ macro{ava} serial-test(`{^name, ^body}`) =
    [^ava-sym]["serial"](^name) with t ->
       t.equals   = t"is"
       t.nequals  = t"not"
-      t.isFalse = t"false"
-      t.isTrue  = t"true"
+      t.isFalse  = t"false"
+      t.isTrue   = t"true"
+      t.passes   = t"pass"
       let ^it = t
       ^body
    ```

@@ -1,19 +1,22 @@
-require: fs -> stat, path -> {join, resolve}, globby, meow, update-notifier
+require:
+   fs -> stat
+   path -> {join, resolve, extname}
+   globby, meow, update-notifier
 
 module.exports = argv ->
    cli = meow with
       {
-         help = {
-            """Usage
-      		      ava <file|folder|glob> [...]"
+         help = {"""
+Usage
+   ava <file|folder|glob> [...]"
 
-      	      Examples
-      		      ava
-      		      ava test.js test2.js"
-      		      ava test-*.js"
+Examples
+   ava
+   ava test.js test2.js"
+   ava test-*.js"
 
-      		   Default patterns when no arguments:"
-      		   test.js test-*.js test/*.eg"""
+Default patterns when no arguments:"
+test.js test-*.js test/*.eg""".trimLeft()
          }
          pkg = "../package.json"
          argv = argv

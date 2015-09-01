@@ -13,7 +13,7 @@ module.exports = argv ->
       		      ava test-*.js"
 
       		   Default patterns when no arguments:"
-      		   test.js test-*.js test/**"""
+      		   test.js test-*.js test/*.eg"""
          }
          pkg = "../package.json"
          argv = argv
@@ -24,10 +24,11 @@ module.exports = argv ->
       stat file: (err, stats) ->
          if err: [ console.error with err.message; process.exit(1) ]
          if stats.is-directory(): [ init: join(file, "*.eg"); return ]
+         if extname(file) !== ".eg": return
          require: ^file
 
    init = (var files) ->
-      if files.length == 0: files = { "test.eg", "test-*.eg", "test/**" }
+      if files.length == 0: files = { "test.eg", "test-*.eg", "test/*.eg" }
       globby files: (err, files) ->
          if err: [ console.error with err.message; process.exit(1) ]
          files each file -> run: resolve(process.cwd(), file)

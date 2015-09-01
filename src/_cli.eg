@@ -35,6 +35,9 @@ test.js test-*.js test/*.eg""".trimLeft()
       globby files: (err, files) ->
          if err: [ console.error with err.message; process.exit(1) ]
          files each file -> run: resolve(process.cwd(), file)
+         ;; NOTE: Watch ava for resolution on this workaround that
+         ;; flushes the output when there are multiple test files
+         process.stdout.write("")
 
    update-notifier({ pkg = cli.pkg }).notify()
 

@@ -1,6 +1,6 @@
 {
   "name": "ava-earl",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "AVA CLI for Earl Grey test files.",
   "license": "MIT",
   "maintainers": [

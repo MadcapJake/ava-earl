@@ -38,7 +38,7 @@
   "dependencies": {
     "ava": "^0.1.0",
     "earlgrey": "0.0.12",
-    "globby": "^2.1.0",
+    "globby": "^3.0.1",
     "meow": "^3.3.0",
     "update-notifier": "^0.5.0"
   }

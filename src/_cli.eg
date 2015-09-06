@@ -32,13 +32,14 @@ test.js test-*.js test/*.eg""".trimLeft()
 
    init = (var files) ->
       if files.length == 0: files = { "test.eg", "test-*.eg", "test/*.eg" }
-      globby files: (err, files) ->
-         if err: [ console.error with err.message; process.exit(1) ]
-         files each file -> run: resolve(process.cwd(), file)
+
+      globby(files).then with files ->
+         files each file -> run: resolve(file)
+
          ;; NOTE: Watch ava for resolution on this workaround that
          ;; flushes the output when there are multiple test files
          process.stdout.write("")
 
    update-notifier({ pkg = cli.pkg }).notify()
 
-   init: cli.input
+   init(cli.input).catch with e -> [console.error(e.stack); process.exit(1)]

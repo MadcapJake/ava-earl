@@ -36,7 +36,7 @@
     "test"
   ],
   "dependencies": {
-    "ava": "^0.1.0",
+    "ava": "^0.2.0",
     "earlgrey": "0.0.12",
     "globby": "^3.0.1",
     "meow": "^3.3.0",

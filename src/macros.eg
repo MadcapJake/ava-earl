@@ -1,5 +1,5 @@
 require: ava
-provide: test, async-test, serial-test
+provide: test, async-test, serial-test, before-test, after-test
 
 macro{ava} test(`{^name, ^body}`) =
    let ava-sym = @deps.ava
@@ -34,6 +34,36 @@ macro{ava} async-test(`{^name, ^body}`) =
    let it = @env.mark(`@`)
    ```
    [^ava-sym](^name) with t ->
+      async:
+         t.equals   = t"is"
+         t.nequals  = t"not"
+         t.isFalse  = t"false"
+         t.isTrue   = t"true"
+         t.passes   = t"pass"
+         let ^it = t
+         ^body
+   ```
+
+macro{ava} before-test(`{^name, ^body}`) =
+   let ava-sym = @deps.ava
+   let it = @env.mark(`@`)
+   ```
+   [^ava-sym][.before](^name) with t ->
+      async:
+         t.equals   = t"is"
+         t.nequals  = t"not"
+         t.isFalse  = t"false"
+         t.isTrue   = t"true"
+         t.passes   = t"pass"
+         let ^it = t
+         ^body
+   ```
+
+macro{ava} after-test(`{^name, ^body}`) =
+   let ava-sym = @deps.ava
+   let it = @env.mark(`@`)
+   ```
+   [^ava-sym][.after](^name) with t ->
       async:
          t.equals   = t"is"
          t.nequals  = t"not"
